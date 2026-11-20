@@ -24,6 +24,13 @@ Le broker Kafka doit apparaître avec le statut `Up`. Le L0 se poursuit avec le 
 
 Les données générées restent locales. Pour le lot RAG, récupérez le guide signalé « diffusion restreinte » dans le kit de cours et placez-le localement dans `data/docs/`.
 
+## Fiches de synthèse
+
+Chaque lot a sa fiche dans [docs/syntheses](docs/syntheses/), avec les étapes du cahier, les choix expliqués et les contrôles à reproduire.
+
+- [L0 · Cadrer le projet et préparer le poste](docs/syntheses/L0-cadrage-installation.md)
+- [L1 · Amener les données brutes jusqu’à DuckDB](docs/syntheses/L1-ingestion.md)
+
 ## Contribution
 
 Proposez les changements sur une branche dédiée et ouvrez une pull request vers `main`.
