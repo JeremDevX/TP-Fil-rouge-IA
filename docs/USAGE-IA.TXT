@@ -35,12 +35,12 @@ POURQUOI   : synthétiser les consignes du dépôt et cadrer les permissions
              accordées aux agents de codage.
 DEMANDE    : rédiger le fichier de cadrage de l’IA pour les permissions
              accordées aux agents de codage.
-RÉSULTAT   : à valider par l’auteur
+RÉSULTAT   : ok
 CE QUI A ÉTÉ REFUSÉ / CORRIGÉ :
              à renseigner par l’auteur
 VÉRIFICATION : comparaison avec le cahier du TP et la grille d’évaluation,
                contrôle des liens et de la syntaxe de l’import `@AGENTS.md`.
-TEMPS      : 1h
+TEMPS      : 1h gagnée
 --------------------------------------------------------------------------------
 
 ENTRÉE 002 — À COMPLÉTER
@@ -70,7 +70,7 @@ CE QUI A ÉTÉ REFUSÉ / CORRIGÉ :
                 avec une IA hébergée.
 VÉRIFICATION : relecture par rapport au cahier (L0, conditions DPO) et au guide
                 anti-fraude ; revue critique en équipe (entrée 003) ; commit 9f397e3.
-TEMPS      : 1h
+TEMPS      : 1h gagnée
 --------------------------------------------------------------------------------
 
 ENTRÉE 003 — À COMPLÉTER
@@ -84,7 +84,7 @@ POURQUOI   : vérifier que les critères de succès peuvent être mesurés avec 
              conclusions d’enquête disponibles.
 DEMANDE    : soumettre les critères de docs/succes.md à une revue critique et
              expliquer l’effet du choix historique des dossiers enquêtés.
-RÉSULTAT   : à valider par l’auteur
+RÉSULTAT   : ok
 CE QUI A ÉTÉ REFUSÉ / CORRIGÉ :
              La cible initiale de 70 % de fraudes confirmées retrouvées devient
              une ambition à calibrer au L5. La précision se calcule sur les
@@ -93,7 +93,30 @@ CE QUI A ÉTÉ REFUSÉ / CORRIGÉ :
 VÉRIFICATION : lecture des changements du commit 9608c6f (« L0 Préciser les
                critères de succès »). L’échange a précisé pourquoi les fraudes
                manquées dans les dossiers sans enquête restent inconnues.
-TEMPS      : 2h
+TEMPS      : 2h gagnée
+--------------------------------------------------------------------------------
+
+ENTRÉE 004 — À COMPLÉTER
+--------------------------------------------------------------------------------
+#ID        : 004
+DATE       : 2026-11-20
+AUTEUR     : Melissa et Jérémie
+LOT TP     : L0
+OUTIL      : Claude (Melissa), Codex (Jérémie)
+POURQUOI   : décrire le parcours d’un sinistre de sa déclaration à sa revue
+             humaine et réunir les choix d’architecture dans un document unique.
+DEMANDE    : Melissa a élaboré la première version de l’architecture avec Claude.
+             Jérémie s’est ensuite appuyé sur Codex pour en faire la revue,
+             comparer les deux propositions et les fusionner dans docs/architecture.md.
+RÉSULTAT   : ok
+CE QUI A ÉTÉ REFUSÉ / CORRIGÉ :
+             La comparaison des schémas a révélé deux points à préciser : qui
+             déclenche le calcul du score et qui reçoit chaque dossier. Le document
+             fusionné décrit l’appel après validation des données et distingue
+             le circuit du gestionnaire de la file des enquêteurs.
+VÉRIFICATION : comparaison avec le cahier du TP et la grille d’évaluation,
+               contrôle des liens et des liaisons du schéma dans le document fusionné.
+TEMPS      : 4h gagnée
 --------------------------------------------------------------------------------
 
 BILAN FINAL (obligatoire, 10-15 lignes)
