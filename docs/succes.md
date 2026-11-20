@@ -1,16 +1,16 @@
-# Définition du succès — système d'aide à la détection de fraude (MAA)
+# Définition du succès — système d’aide à la détection de fraude (MAA)
 
-Le système **réussit** s'il aide les 4 enquêteurs à mieux cibler leurs dossiers, sans jamais décider à leur place, sans discriminer, et en restant traçable.
+Le système réussit s’il aide les quatre enquêteurs à mieux cibler leurs dossiers, avec des scores traçables et explicables et une décision qui reste humaine.
 
-1. **Taux de revue soutenable** : ≤ 10 % des déclarations orientées en `revue_renforcee` (≈ 400 dossiers/an pour ~4 000 déclarations, soit ~100 par enquêteur et par an), compatible avec une revue humaine sous 48 h. *Hypothèse de capacité à confirmer avec le métier.*
-2. **Rappel** : au moins 70 % des fraudes confirmées du jeu de test se trouvent dans la file `revue_renforcee`.
-3. **Précision** : au moins 1 dossier orienté sur 3 aboutit à une fraude confirmée, contre un ciblage « au flair » à mesurer comme référence (baseline).
-4. **PR-AUC** strictement supérieure à la baseline (règles du guide interne seules), avec un gain mesuré et non une simple impression.
-5. **Zéro décision automatique** : 100 % des refus d'indemnisation portent une décision humaine motivée et l'identité du décideur.
-6. **Traçabilité** : 100 % des scores sont journalisés avec la version du modèle (MLflow), la version des données et un `trace_id`.
-7. **Explicabilité** : chaque score en revue renforcée s'accompagne de ses 3 principaux facteurs, formulés en langage gestionnaire.
-8. **Équité** : l'écart de taux de revue et de faux positifs entre tranches d'âge, zones et sexes reste ≤ 5 points, ou bien il est justifié et documenté. Aucun indicateur interdit (sexe, âge, lieu de résidence en tant que tels) n'est utilisé comme feature.
-9. **Protection des données** : aucun identifiant direct (nom, email, IBAN, téléphone) dans les couches gold et ml ; tous les jeux de données sont catalogués avec leur base légale et leur durée de rétention.
-10. **Robustesse** : la dérive (PSI > 0,2 sur une feature ou sur le score) déclenche une alerte, et le modèle reste dans ces seuils sur les données de janvier 2026 ou bien il est ré-entraîné selon la politique définie.
+1. **Capacité et délai de revue.** Viser au plus 10 % des sinistres valides uniques en `revue_renforcee`, avec une première revue humaine sous 48 h à compter de l’entrée en file. Vérifier ces hypothèses avec les quatre enquêteurs en période de pointe et préciser si le délai se compte en heures ouvrées ou calendaires.
+2. **Rappel.** À budget de revue égal, chercher à retrouver le plus de fraudes confirmées. Garder 70 % comme ambition. Fixer la cible et le seuil sur les données de validation au L5, puis mesurer le résultat sur un test chronologique. Utiliser les variables disponibles au moment du score et les conclusions d’enquête connues au moment de l’entraînement.
+3. **Précision.** Viser au moins une fraude confirmée sur trois parmi les dossiers orientés dont l’enquête est clôturée. Comparer les résultats avec le même recul après déclaration et publier la part des dossiers orientés sans conclusion.
+4. **Comparaison des modèles.** Comparer au moins deux algorithmes et viser une PR-AUC supérieure à celle d’un score reproductible fondé sur les règles du guide interne, sur le même jeu de test. Publier aussi le F1, le rappel, la précision et le taux de revue. Suivre les essais dans MLflow et enregistrer le modèle `champion`.
+5. **Décision humaine.** Le score oriente le dossier. Chaque refus d’indemnisation est décidé et motivé par un humain dont l’identité est consignée.
+6. **Traçabilité et fraîcheur.** Relier chaque prédiction à un `trace_id`, aux versions du modèle et des données et aux variables nécessaires au suivi. Mesurer séparément le délai entre l’ingestion et le premier score et la latence p95 de l’API. Fixer l’objectif de fraîcheur dans le contrat de données L3.
+7. **Explicabilité.** Expliquer chaque score en langage métier et présenter les trois facteurs principaux en revue renforcée. Au L9, produire l’importance globale SHAP et deux explications individuelles reformulées pour un gestionnaire.
+8. **Équité.** Réserver l’âge, la zone, le sexe et les colonnes `_audit_*` à l’audit. Mesurer avec Fairlearn les taux de revue, de faux positifs et le rappel par groupe, avec les effectifs et la couverture des labels. Examiner les écarts de plus de 5 points sur le taux de revue ou de faux positifs, rechercher les variables qui reflètent indirectement ces attributs et tester au moins une mesure d’atténuation.
+9. **Protection des données.** Exclure les identifiants directs de `gold` et `ml`, les données personnelles des journaux d’exécution, et le sel de pseudonymisation et les secrets de Git. Documenter notamment les accès, la base légale et la rétention dans le catalogue L3. Réserver le guide interne au rôle `anti_fraude` dès la recherche dans le RAG.
+10. **Supervision et dérive.** Suivre le débit, les erreurs, la latence, le taux de revue et le score moyen. Vérifier au moins trois alertes, dont une métier. Réserver le lot de janvier 2026 au L8 pour diagnostiquer la dérive avec le PSI, le KS et la distribution des scores. Tout nouveau modèle suit la politique de réentraînement, avec comparaison au `champion`, puis validation en `shadow` et en `canary`.
 
-> Limite connue : le label n'existe que pour les dossiers **enquêtés**. Les métriques 2 à 4 mesurent donc la capacité du modèle à retrouver ce que les enquêteurs ont déjà trouvé, pas la fraude réelle (biais de sélection, à traiter dans le rapport d'éthique).
+> **Limite connue.** Seuls les dossiers enquêtés ont un label. Les mesures de performance décrivent les résultats sur cette population, avec les biais des enquêtes historiques. Le rapport d’éthique documente cette limite.
