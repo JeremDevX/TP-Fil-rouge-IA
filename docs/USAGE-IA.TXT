@@ -35,12 +35,88 @@ POURQUOI   : synthétiser les consignes du dépôt et cadrer les permissions
              accordées aux agents de codage.
 DEMANDE    : rédiger le fichier de cadrage de l’IA pour les permissions
              accordées aux agents de codage.
-RÉSULTAT   : à valider par l’auteur
+RÉSULTAT   : ok
 CE QUI A ÉTÉ REFUSÉ / CORRIGÉ :
              à renseigner par l’auteur
 VÉRIFICATION : comparaison avec le cahier du TP et la grille d’évaluation,
                contrôle des liens et de la syntaxe de l’import `@AGENTS.md`.
-TEMPS      : à estimer par l’auteur
+TEMPS      : 1h gagnée
+--------------------------------------------------------------------------------
+
+ENTRÉE 002 — À COMPLÉTER
+--------------------------------------------------------------------------------
+#ID        : 002
+DATE       : 2026-11-20
+AUTEUR     : Melissa
+LOT TP     : L0
+OUTIL      : Claude Code (Claude Opus 5.5)
+POURQUOI   : demander à l'agent ce qu'il a compris du sujet afin de le cadrer dès le début,
+             puis obtenir une première version des critères de succès à discuter en équipe.
+DEMANDE    : « Lis le sujet du TP et dis moi ce que tu en comprends »,
+            « regarde quelles dépendances il me manque pour ce projet »,
+            puis « rédige succes.md » 
+            (10 lignes, métriques métier, capacité de 4 enquêteurs).
+RÉSULTAT   : ACCEPTÉ APRÈS CORRECTION (version révisée à l'entrée 003)
+CE QUI A ÉTÉ REFUSÉ / CORRIGÉ :
+            - Les seuils (revue ≤ 10 %, rappel ≥ 70 %, précision 1/3, écart
+                d'équité 5 points, PSI 0,2) ont été choisis par l'IA et ne viennent
+                pas du sujet. Ce sont des hypothèses à justifier.
+            - Le rappel de 70 % n'est pas vérifiable avant le L5. Il passe
+                d'objectif ferme à ambition à calibrer (entrée 003).
+            - INCIDENT : l'agent a lu les 2 premières lignes de
+                data/raw/enquetes.csv (ID, dates, conclusion, code enquêteur, sans
+                nom, IBAN ni contact), ce que la règle du TP interdit. Il l'a
+                signalé lui-même. Consigne donnée : ne plus lire assures/enquetes
+                avec une IA hébergée.
+VÉRIFICATION : relecture par rapport au cahier (L0, conditions DPO) et au guide
+                anti-fraude ; revue critique en équipe (entrée 003) ; commit 9f397e3.
+TEMPS      : 1h gagnée
+--------------------------------------------------------------------------------
+
+ENTRÉE 003 — À COMPLÉTER
+--------------------------------------------------------------------------------
+#ID        : 003
+DATE       : 2026-11-20
+AUTEUR     : Jérémie
+LOT TP     : L0
+OUTIL      : Codex
+POURQUOI   : vérifier que les critères de succès peuvent être mesurés avec les
+             conclusions d’enquête disponibles.
+DEMANDE    : soumettre les critères de docs/succes.md à une revue critique et
+             expliquer l’effet du choix historique des dossiers enquêtés.
+RÉSULTAT   : ok
+CE QUI A ÉTÉ REFUSÉ / CORRIGÉ :
+             La cible initiale de 70 % de fraudes confirmées retrouvées devient
+             une ambition à calibrer au L5. La précision se calcule sur les
+             dossiers orientés dont l’enquête est clôturée. La part des dossiers
+             orientés sans conclusion doit être publiée.
+VÉRIFICATION : lecture des changements du commit 9608c6f (« L0 Préciser les
+               critères de succès »). L’échange a précisé pourquoi les fraudes
+               manquées dans les dossiers sans enquête restent inconnues.
+TEMPS      : 2h gagnée
+--------------------------------------------------------------------------------
+
+ENTRÉE 004 — À COMPLÉTER
+--------------------------------------------------------------------------------
+#ID        : 004
+DATE       : 2026-11-20
+AUTEUR     : Melissa et Jérémie
+LOT TP     : L0
+OUTIL      : Claude (Melissa), Codex (Jérémie)
+POURQUOI   : décrire le parcours d’un sinistre de sa déclaration à sa revue
+             humaine et réunir les choix d’architecture dans un document unique.
+DEMANDE    : Melissa a élaboré la première version de l’architecture avec Claude.
+             Jérémie s’est ensuite appuyé sur Codex pour en faire la revue,
+             comparer les deux propositions et les fusionner dans docs/architecture.md.
+RÉSULTAT   : ok
+CE QUI A ÉTÉ REFUSÉ / CORRIGÉ :
+             La comparaison des schémas a révélé deux points à préciser : qui
+             déclenche le calcul du score et qui reçoit chaque dossier. Le document
+             fusionné décrit l’appel après validation des données et distingue
+             le circuit du gestionnaire de la file des enquêteurs.
+VÉRIFICATION : comparaison avec le cahier du TP et la grille d’évaluation,
+               contrôle des liens et des liaisons du schéma dans le document fusionné.
+TEMPS      : 4h gagnée
 --------------------------------------------------------------------------------
 
 BILAN FINAL (obligatoire, 10-15 lignes)
