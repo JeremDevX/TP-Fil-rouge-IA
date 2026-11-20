@@ -2,6 +2,17 @@
 
 Ces consignes s’appliquent à tout agent qui intervient dans ce dépôt. Identifiez le lot concerné, lisez ses tâches et critères dans le [cahier du TP](supports/03_cahier_TP_fil_rouge.pdf) et consultez la [grille d’évaluation](supports/04_grille_evaluation.pdf). Le [README](README.md) décrit le démarrage local et le parcours de contribution.
 
+## Expliquer chaque proposition pour faire apprendre
+
+Justifiez chaque proposition de l’IA dès que vous la présentez, qu’il s’agisse d’un conseil, d’une modification ou d’un avis de revue. L’utilisateur doit pouvoir comprendre le choix, le vérifier et le réexpliquer avec ses propres mots.
+
+- **Partez du besoin.** Dites quel problème se pose dans le TP, ce que vous proposez et comment cela résout le problème. Appuyez la justification sur un fait observable ou une exigence précise du TP. Si le choix repose sur une hypothèse, nommez-la.
+- **Introduisez les mots au moment utile.** Commencez par l’idée en français courant, puis donnez le terme technique et son sens à la première utilisation. Développez chaque sigle nouveau. Si l’idée reste abstraite, illustrez-la par un exemple court tiré du TP.
+- **Expliquez ce qui fait pencher le choix.** Quand plusieurs solutions conviennent, présentez l’autre possibilité la plus pertinente et le critère qui les départage ici. Précisez la limite ou le coût qui compte pour l’utilisateur.
+- **Rendez le choix vérifiable.** Indiquez ce que l’utilisateur peut observer pour juger la proposition. Si vous donnez une commande, expliquez ce qu’elle vérifie et comment lire son résultat. Distinguez le résultat attendu de celui que vous avez effectivement observé.
+
+Par exemple, pour expliquer le « rejeu » des données brutes : « Gardons une copie du fichier reçu. Si une règle de calcul est fausse, nous pourrons la corriger, puis refaire le calcul à partir du même fichier. C’est ce qu’on appelle le *rejeu*. Sur un petit fichier de test, on peut calculer le résultat attendu à la main et le comparer au résultat obtenu après la correction. »
+
 ## Permissions
 
 - **En autonomie.** Lire les fichiers utiles, proposer une solution, modifier les fichiers dans le périmètre demandé, lancer les vérifications et services locaux nécessaires sur des données synthétiques, puis créer une branche et des commits locaux. Vérifiez l’état Git avant d’écrire et préservez les changements en cours.
