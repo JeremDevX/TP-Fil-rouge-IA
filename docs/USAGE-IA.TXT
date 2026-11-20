@@ -28,7 +28,7 @@ ENTRÉE 001 — À COMPLÉTER
 --------------------------------------------------------------------------------
 #ID        : 001
 DATE       : 2026-11-20
-AUTEUR     : à renseigner
+AUTEUR     : Jérémie
 LOT TP     : L0
 OUTIL      : Codex
 POURQUOI   : synthétiser les consignes du dépôt et cadrer les permissions
