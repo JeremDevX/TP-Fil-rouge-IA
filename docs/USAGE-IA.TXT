@@ -137,6 +137,29 @@ VÉRIFICATION :
 TEMPS      : 3H
 --------------------------------------------------------------------------------
 
+ENTRÉE 006 — À COMPLÉTER
+--------------------------------------------------------------------------------
+#ID        : 006
+DATE       : 2026-11-20
+AUTEUR     : à compléter
+LOT TP     : L1 — étape 4
+OUTIL      : Codex
+POURQUOI   : réaliser le chargement par lot des quatre fichiers de référence
+             et vérifier qu’un second passage conserve les mêmes effectifs.
+DEMANDE    : écrire le script qui importe les quatre CSV dans les tables bronze
+             de DuckDB en conservant les valeurs brutes.
+RÉSULTAT   : à confirmer par l’auteur. Le résumé de cet usage a été validé.
+CE QUI A ÉTÉ REFUSÉ / CORRIGÉ :
+             En relisant le test, Codex a repéré une virgule finale en trop que
+             le premier lecteur CSV acceptait. Le script vérifie désormais le
+             nombre de champs de chaque ligne. Le fichier de test a été corrigé.
+VÉRIFICATION : deux exécutions du script ont donné les mêmes effectifs :
+               4 000 assurés, 4 909 contrats, 120 prestataires et 2 841 enquêtes.
+               Trois tests ont réussi. Le test du lot vérifie aussi qu’un fichier
+               d’enquêtes mal formé annule les ajouts des autres fichiers.
+TEMPS      : à estimer par l’auteur
+--------------------------------------------------------------------------------
+
 BILAN FINAL (obligatoire, 10-15 lignes)
 - Où l'IA vous a fait gagner le plus de temps :
 - Où elle vous a induits en erreur :
