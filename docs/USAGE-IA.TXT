@@ -119,6 +119,24 @@ VÉRIFICATION : comparaison avec le cahier du TP et la grille d’évaluation,
 TEMPS      : 4h gagnée
 --------------------------------------------------------------------------------
 
+ENTRÉE 005 — À COMPLÉTER
+--------------------------------------------------------------------------------
+#ID        : 005
+DATE       : 2026-11-20
+AUTEUR     : Jérémie
+LOT TP     : L1 — étape 3
+OUTIL      : Codex
+POURQUOI   : réaliser le consommateur demandé à l’étape 3 du lot L1.
+DEMANDE    : à la demande de Jérémie, Codex a rédigé le fichier ingestion/consumer_to_lake.py.
+             Jérémie a aussi demandé à Codex de clarifier les étapes du lot L1
+             et d’expliquer à Melissa et à lui comment le fichier lit les messages
+             de Kafka et les enregistre dans DuckDB.
+RÉSULTAT   : à compléter par l’auteur.
+CE QUI A ÉTÉ REFUSÉ / CORRIGÉ :
+VÉRIFICATION :
+TEMPS      : 3H
+--------------------------------------------------------------------------------
+
 BILAN FINAL (obligatoire, 10-15 lignes)
 - Où l'IA vous a fait gagner le plus de temps :
 - Où elle vous a induits en erreur :
