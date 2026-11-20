@@ -40,7 +40,7 @@ CE QUI A ÉTÉ REFUSÉ / CORRIGÉ :
              à renseigner par l’auteur
 VÉRIFICATION : comparaison avec le cahier du TP et la grille d’évaluation,
                contrôle des liens et de la syntaxe de l’import `@AGENTS.md`.
-TEMPS      : à estimer par l’auteur
+TEMPS      : 1h
 --------------------------------------------------------------------------------
 
 ENTRÉE 002 — À COMPLÉTER
@@ -49,14 +49,28 @@ ENTRÉE 002 — À COMPLÉTER
 DATE       : 2026-11-20
 AUTEUR     : Melissa
 LOT TP     : L0
-OUTIL      : à préciser par Melissa
-POURQUOI   : définir les critères de succès du système de détection de fraude.
-DEMANDE    : rédiger la première version de docs/succes.md.
-RÉSULTAT   : à valider par Melissa
+OUTIL      : Claude Code (Claude Opus 5.5)
+POURQUOI   : demander à l'agent ce qu'il a compris du sujet afin de le cadrer dès le début,
+             puis obtenir une première version des critères de succès à discuter en équipe.
+DEMANDE    : « Lis le sujet du TP et dis moi ce que tu en comprends »,
+            « regarde quelles dépendances il me manque pour ce projet »,
+            puis « rédige succes.md » 
+            (10 lignes, métriques métier, capacité de 4 enquêteurs).
+RÉSULTAT   : ACCEPTÉ APRÈS CORRECTION (version révisée à l'entrée 003)
 CE QUI A ÉTÉ REFUSÉ / CORRIGÉ :
-             à renseigner par Melissa
-VÉRIFICATION : le commit 9f397e3 (« définir succes.md ») ajoute le fichier.
-TEMPS      : à estimer par Melissa
+            - Les seuils (revue ≤ 10 %, rappel ≥ 70 %, précision 1/3, écart
+                d'équité 5 points, PSI 0,2) ont été choisis par l'IA et ne viennent
+                pas du sujet. Ce sont des hypothèses à justifier.
+            - Le rappel de 70 % n'est pas vérifiable avant le L5. Il passe
+                d'objectif ferme à ambition à calibrer (entrée 003).
+            - INCIDENT : l'agent a lu les 2 premières lignes de
+                data/raw/enquetes.csv (ID, dates, conclusion, code enquêteur, sans
+                nom, IBAN ni contact), ce que la règle du TP interdit. Il l'a
+                signalé lui-même. Consigne donnée : ne plus lire assures/enquetes
+                avec une IA hébergée.
+VÉRIFICATION : relecture par rapport au cahier (L0, conditions DPO) et au guide
+                anti-fraude ; revue critique en équipe (entrée 003) ; commit 9f397e3.
+TEMPS      : 1h
 --------------------------------------------------------------------------------
 
 ENTRÉE 003 — À COMPLÉTER
@@ -79,7 +93,7 @@ CE QUI A ÉTÉ REFUSÉ / CORRIGÉ :
 VÉRIFICATION : lecture des changements du commit 9608c6f (« L0 Préciser les
                critères de succès »). L’échange a précisé pourquoi les fraudes
                manquées dans les dossiers sans enquête restent inconnues.
-TEMPS      : à estimer par l’auteur
+TEMPS      : 2h
 --------------------------------------------------------------------------------
 
 BILAN FINAL (obligatoire, 10-15 lignes)
