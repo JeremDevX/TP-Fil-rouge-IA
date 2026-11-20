@@ -43,6 +43,45 @@ VÉRIFICATION : comparaison avec le cahier du TP et la grille d’évaluation,
 TEMPS      : à estimer par l’auteur
 --------------------------------------------------------------------------------
 
+ENTRÉE 002 — À COMPLÉTER
+--------------------------------------------------------------------------------
+#ID        : 002
+DATE       : 2026-11-20
+AUTEUR     : Melissa
+LOT TP     : L0
+OUTIL      : à préciser par Melissa
+POURQUOI   : définir les critères de succès du système de détection de fraude.
+DEMANDE    : rédiger la première version de docs/succes.md.
+RÉSULTAT   : à valider par Melissa
+CE QUI A ÉTÉ REFUSÉ / CORRIGÉ :
+             à renseigner par Melissa
+VÉRIFICATION : le commit 9f397e3 (« définir succes.md ») ajoute le fichier.
+TEMPS      : à estimer par Melissa
+--------------------------------------------------------------------------------
+
+ENTRÉE 003 — À COMPLÉTER
+--------------------------------------------------------------------------------
+#ID        : 003
+DATE       : 2026-11-20
+AUTEUR     : Jérémie
+LOT TP     : L0
+OUTIL      : Codex
+POURQUOI   : vérifier que les critères de succès peuvent être mesurés avec les
+             conclusions d’enquête disponibles.
+DEMANDE    : soumettre les critères de docs/succes.md à une revue critique et
+             expliquer l’effet du choix historique des dossiers enquêtés.
+RÉSULTAT   : à valider par l’auteur
+CE QUI A ÉTÉ REFUSÉ / CORRIGÉ :
+             La cible initiale de 70 % de fraudes confirmées retrouvées devient
+             une ambition à calibrer au L5. La précision se calcule sur les
+             dossiers orientés dont l’enquête est clôturée. La part des dossiers
+             orientés sans conclusion doit être publiée.
+VÉRIFICATION : lecture des changements du commit 9608c6f (« L0 Préciser les
+               critères de succès »). L’échange a précisé pourquoi les fraudes
+               manquées dans les dossiers sans enquête restent inconnues.
+TEMPS      : à estimer par l’auteur
+--------------------------------------------------------------------------------
+
 BILAN FINAL (obligatoire, 10-15 lignes)
 - Où l'IA vous a fait gagner le plus de temps :
 - Où elle vous a induits en erreur :
