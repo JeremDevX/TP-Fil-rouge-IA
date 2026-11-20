@@ -24,6 +24,25 @@ VÉRIFICATION : (test dbt, pytest, lecture doc officielle, relecture binôme...)
 TEMPS      : estimé gagné / perdu
 --------------------------------------------------------------------------------
 
+ENTRÉE 001 — À COMPLÉTER
+--------------------------------------------------------------------------------
+#ID        : 001
+DATE       : 2026-11-20
+AUTEUR     : Jérémie
+LOT TP     : L0
+OUTIL      : Codex
+POURQUOI   : synthétiser les consignes du dépôt et cadrer les permissions
+             accordées aux agents de codage.
+DEMANDE    : rédiger le fichier de cadrage de l’IA pour les permissions
+             accordées aux agents de codage.
+RÉSULTAT   : à valider par l’auteur
+CE QUI A ÉTÉ REFUSÉ / CORRIGÉ :
+             à renseigner par l’auteur
+VÉRIFICATION : comparaison avec le cahier du TP et la grille d’évaluation,
+               contrôle des liens et de la syntaxe de l’import `@AGENTS.md`.
+TEMPS      : à estimer par l’auteur
+--------------------------------------------------------------------------------
+
 BILAN FINAL (obligatoire, 10-15 lignes)
 - Où l'IA vous a fait gagner le plus de temps :
 - Où elle vous a induits en erreur :
