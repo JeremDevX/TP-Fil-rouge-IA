@@ -1,0 +1,34 @@
+# Consignes du TP fil rouge MAA
+
+Ces consignes s’appliquent à tout agent qui intervient dans ce dépôt. Identifiez le lot concerné, lisez ses tâches et critères dans le [cahier du TP](supports/03_cahier_TP_fil_rouge.pdf) et consultez la [grille d’évaluation](supports/04_grille_evaluation.pdf). Le [README](README.md) décrit le démarrage local et le parcours de contribution.
+
+## Permissions
+
+- **En autonomie.** Lire les fichiers utiles, proposer une solution, modifier les fichiers dans le périmètre demandé, lancer les vérifications et services locaux nécessaires sur des données synthétiques, puis créer une branche et des commits locaux. Vérifiez l’état Git avant d’écrire et préservez les changements en cours. Utilisez RTK si l’environnement de travail le prévoit.
+- **Avec accord explicite.** Élargir le périmètre, publier une branche, ouvrir une pull request, fusionner, déployer hors du poste local, modifier les accès ou les protections du dépôt, partager le contenu du dépôt avec un service externe supplémentaire ou intervenir sur un environnement partagé. Toute action destructive ou migration risquée exige aussi une sauvegarde et un plan de retour arrière. Cela inclut `make clean`, la suppression de volumes et l’écrasement de données locales existantes.
+- **Interdit.** Contourner les permissions, la protection de `main` ou les contrôles de la pull request. Excluez les secrets, le sel de pseudonymisation et les données personnelles (même fictives ou pseudonymisées) des prompts externes, des commits et des journaux d’exécution. Gardez les exports générés et le guide anti-fraude à diffusion restreinte sur le poste local. N’envoyez aucune ligne de `bronze.assures` ou `bronze.enquetes` vers un outil d’IA hors du poste. Pour les exercices concernés, utilisez Ollama en local avec le minimum de données nécessaire.
+
+## Développement et vérification
+
+- Gardez le changement dans le périmètre du lot. Réutilisez le code existant avant d’ajouter une abstraction, une option ou une dépendance. Donnez un rôle à chaque fonction, classe, module ou composant. Visez moins de 300 lignes par fichier et extrayez une responsabilité avant d’ajouter du code à un fichier de plus de 500 lignes.
+- Validez les données aux frontières, avec des types ou schémas explicites. Séparez les données externes du modèle interne si elles sont transformées. Traitez les erreurs près de leur source et propagez les changements de contrat aux consommateurs. Évitez les changements de forme hors périmètre et supprimez le code mort lié à la tâche.
+- Préservez le bronze brut et rejouable. Gardez les identifiants directs hors des couches `gold` et `ml`, et les colonnes `_audit_*` hors des variables d’entraînement. Appliquez les droits d’accès dans une couche de confiance. Le RAG filtre le guide interne dès la recherche selon le rôle `anti_fraude`. Le score oriente vers une revue, la décision reste humaine.
+- Pour tout changement non trivial, lancez la vérification pertinente la plus rapide qui couvre le comportement modifié. Appuyez-vous sur les critères du lot et le [Makefile](Makefile), par exemple `make dbt` si la couche bronze est prête. Indiquez les commandes, leurs résultats et les vérifications omises avec leur raison. Vérifiez les conclusions réglementaires sur les textes officiels.
+- L’équipe relit le travail assisté par IA, valide les choix et doit pouvoir expliquer chaque ligne livrée en soutenance. Une revue IA complète la revue humaine.
+
+## Journal d’usage de l’IA
+
+1. **Initialiser au L0.** Ouvrez [docs/USAGE-IA.TXT](docs/USAGE-IA.TXT) dès le cadrage. Le gabarit est fourni. S’il manque, rétablissez le gabarit versionné. Demandez le nom de l’équipe et les prénoms des membres si l’en-tête est vide. Complétez-le avec les informations confirmées et ajoutez la première entrée réelle selon le parcours ci-dessous.
+2. **Poser la question à chaque usage significatif.** Couvrez le cadrage, la génération de code, le débogage et la revue, y compris si la proposition est refusée ou si aucun fichier ne change. Regroupez les échanges sur une même tâche et laissez les simples autocomplétions hors du journal. À la fin de l’usage, demandez à l’utilisateur quoi consigner avant d’écrire. Proposez un résumé factuel du lot, de l’outil, de la demande, de son objectif et des vérifications faites. Posez une seule question pour valider le résumé et demander les champs manquants.
+
+   > Que veux-tu consigner dans `docs/USAGE-IA.TXT` pour cet usage ? Voici le résumé et les vérifications que je propose. Quel résultat retiens-tu, qu’as-tu corrigé ou refusé, et combien de temps estimes-tu avoir gagné ou perdu ?
+
+3. **Consigner après la réponse.** Suivez le format du journal. Indiquez le prénom de l’auteur, la date, le lot, l’outil, la raison du recours à l’IA, la demande résumée, le résultat (`ACCEPTÉ`, `ACCEPTÉ APRÈS CORRECTION` ou `REFUSÉ`), les corrections ou refus et leur mode de détection, la vérification et le temps estimé. Attribuez le prochain identifiant d’entrée en ignorant l’exemple du gabarit. Ajoutez l’entrée avant le bilan en préservant les entrées précédentes. Si l’utilisateur n’a pas répondu, laissez l’entrée en attente et poursuivez le travail autorisé. N’inventez ni résultats, ni corrections, ni temps gagné.
+4. **Clore pour le rendu.** Le journal doit contenir au moins 10 entrées réelles, avec les refus et corrections observés, et un bilan de 10 à 15 lignes au format du gabarit. Faites valider le bilan par l’équipe, y compris l’estimation de la part de code générée par IA et de la part relue ou testée.
+
+## Branches, commits et revue
+
+1. Travaillez sur une branche dédiée au lot ou à la tâche. La branche `main` est protégée et reçoit les changements par pull request. Chaque contribution reste attribuée à son auteur réel. Signez les commits avec la configuration de signature de l’auteur et signalez si elle manque.
+2. Faites un commit à chaque étape cohérente et vérifiée, ainsi qu’avant une passation si une étape est prête. Gardez ensemble les changements qui doivent fonctionner ensemble, par exemple le code, ses tests et le contrat mis à jour. Un petit changement cohérent tient dans un seul commit.
+3. Relisez le diff et les fichiers préparés pour le commit. Sélectionnez uniquement les changements du lot et vérifiez l’absence de données locales ou de secrets. Donnez à chaque commit un titre qui indique l’action et son objet, par exemple `L1 Corriger le rejeu des événements Kafka`. Expliquez la raison dans le corps du commit si le choix demande du contexte.
+4. À la revue, indiquez le lot, les choix à expliquer, les contrôles exécutés et les limites restantes. Faites relire par un membre de l’équipe et attendez les contrôles requis avant fusion. Ajoutez l’entrée du journal validée au commit pertinent si elle est prête, ou dans un commit de suivi lorsqu’elle est confirmée.
